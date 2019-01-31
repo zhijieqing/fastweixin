@@ -52,10 +52,12 @@ public abstract class ApiConfig extends Observable implements Serializable {
         this.appid = appid;
         this.secret = secret;
         this.enableJsApi = enableJsApi;
+    }
+
+    protected void init(){
         initToken();
         if (enableJsApi) initJSToken();
     }
-
 
     public String getAppid() {
         return appid;

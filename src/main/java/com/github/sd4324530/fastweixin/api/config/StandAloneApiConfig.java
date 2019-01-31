@@ -33,6 +33,7 @@ public class StandAloneApiConfig extends ApiConfig {
      */
     public StandAloneApiConfig(String appid, String secret, boolean enableJsApi) {
         super(appid, secret,enableJsApi);
+        init();
     }
 
     @Override

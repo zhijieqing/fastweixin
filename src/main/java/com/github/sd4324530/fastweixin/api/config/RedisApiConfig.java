@@ -41,9 +41,8 @@ public class RedisApiConfig extends ApiConfig {
         this.jsLock=jsLock;
         this.redisTemplate=redisTemplate;
         this.accessTokenKey="accessToken_"+appid;
-        this.accessTokenLockKey="accessTokenLock_"+appid;
         this.jsApiTicketKey="jsApiTicket_"+appid;
-        this.jsApiTicketLockKey="jsApiTicketLock_"+appid;
+        init();
     }
 
     /**
@@ -107,12 +106,12 @@ public class RedisApiConfig extends ApiConfig {
         redisTemplate.opsForValue().set(jsApiTicketKey,jsApiTicket,expiresIn,TimeUnit.SECONDS);
     }
 
-    public String getAccessTokenLockKey() {
-        return accessTokenLockKey;
+    public static String getAccessTokenLockKey(String appId) {
+        return "accessTokenLock_"+appId;
     }
 
-    public String getJsApiTicketLockKey() {
-        return jsApiTicketLockKey;
+    public static String getJsApiTicketLockKey(String appId) {
+        return "jsApiTicketLock_"+appId;
     }
 
     protected boolean tokenLock() {
@@ -130,4 +129,5 @@ public class RedisApiConfig extends ApiConfig {
     protected void jsUnlock() {
         jsLock.unlock();
     }
+
 }
