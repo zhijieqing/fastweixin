@@ -14,6 +14,11 @@ public enum QrcodeType {
     QR_SCENE,
 
     /**
+     * 临时字符串二维码
+     */
+    QR_STR_SCENE,
+
+    /**
      * 永久二维码
      */
     QR_LIMIT_SCENE,
