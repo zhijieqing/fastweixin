@@ -178,7 +178,7 @@ public abstract class ApiConfig extends Observable implements Serializable {
                                 //刷新时间回滚
                                 throw new WeixinException("微信公众号jsToken获取出错，错误信息:" + response.getErrcode() + "," + response.getErrmsg());
                             }
-                            setAccessTokenInner(response.getTicket(), response.getExpiresIn());
+                            setJsApiTicketInner(response.getTicket(), response.getExpiresIn());
                             //设置通知点
                             setChanged();
                             notifyObservers(new ConfigChangeNotice(appid, ChangeType.JS_TOKEN, response.getTicket()));

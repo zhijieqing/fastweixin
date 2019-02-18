@@ -83,7 +83,7 @@ public class RedisApiConfig extends ApiConfig {
 
     @Override
     protected String getAccessTokenInner() {
-        return this.accessToken;
+        return this.redisTemplate.opsForValue().get(accessTokenKey);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class RedisApiConfig extends ApiConfig {
 
     @Override
     protected String getJsApiTicketInner() {
-        return this.jsApiTicket;
+        return this.redisTemplate.opsForValue().get(jsApiTicketKey);
     }
 
     @Override
